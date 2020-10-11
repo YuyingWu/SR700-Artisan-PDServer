@@ -8,6 +8,8 @@ import freshroastsr700
 import logging
 import Pyro4
 
+sys.path.append("/home/pi/.local/lib/python3.7/site-packages")
+
 @Pyro4.expose
 class Roaster(object):
     def __init__(self):
