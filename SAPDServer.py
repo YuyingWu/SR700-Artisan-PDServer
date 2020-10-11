@@ -4,13 +4,9 @@
 
 import time
 import sys
-
-sys.path.append("/home/pi/.local/lib/python3.7/site-packages")
-
 import freshroastsr700
 import logging
 import Pyro4
-
 
 @Pyro4.expose
 class Roaster(object):
@@ -39,6 +35,12 @@ class Roaster(object):
     def run_roast(self):
         if(self.roaster.get_roaster_state() == 'idle'):
             self.roaster.roast()
+
+    def run_cooling(self):
+        self.roaster.cool()
+
+    def stop(self):
+        self.roaster.idle()
 
     def set_fan_speed(self, speed):
         new_speed = int(speed)
