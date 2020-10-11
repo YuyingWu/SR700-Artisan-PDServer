@@ -2,13 +2,15 @@
 # Copyright (c) 2015-2016 Jeff Stevens
 # SR700-Artisan-PDServer, released under GPLv3
 
+
 import time
 import sys
+
+sys.path.append("/home/pi/.local/lib/python3.7/site-packages")
+
 import freshroastsr700
 import logging
 import Pyro4
-
-sys.path.append("/home/pi/.local/lib/python3.7/site-packages")
 
 @Pyro4.expose
 class Roaster(object):
